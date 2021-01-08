@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  clickhouse:
+    image: yandex/clickhouse-server:20.8.7.15
+    volumes:
+      - ./resources/init:/docker-entrypoint-initdb.d
+      - ./resources/queries:/opt/queries
+    tmpfs:
+      - /var/lib/clickhouse
+
+  minio:
+    image: bitnami/minio:latest
+    ports:
+      - 9000:9000
+    tmpfs:
+      - /data
+    volumes:
+      - ./resources/scripts:/opt/resources/scripts
+    environment:
+      - MINIO_ACCESS_KEY=user
+      - MINIO_SECRET_KEY=changeme
