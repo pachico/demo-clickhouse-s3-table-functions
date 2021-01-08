@@ -1,9 +1,8 @@
-# Demo ClickHouse S3 function to import/export data to S3 
+# Demo ClickHouse S3 function to import/export data to S3
 
 Simple demo to show how to import/export data from/to S3 or compatible storage services.
 
 Since we aim to have a complete self contained demo, rather than using AWS S3, or any compatible service, we will use MinIO for this demo.
-
 
 ## Requirements
 
